@@ -3,9 +3,11 @@ require 'lib/rack/raker'
 
 use Rack::Reloader, 5
 
-# use Rack::Raker, 'Rakefile'
-# # To test Raker::Middleware
-# require 'rack/lobster'
-# run Rack::Lobster.new
+rakefile = ::File.join(::File.dirname(__FILE__), 'Rakefile')
 
-run Rack::Raker.new('Rakefile')
+use Rack::Raker, rakefile
+# To test Raker::Middleware
+require 'rack/lobster'
+run Rack::Lobster.new
+
+# run Rack::Raker.new(rakefile)

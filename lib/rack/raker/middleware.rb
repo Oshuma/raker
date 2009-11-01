@@ -9,7 +9,11 @@ module Rack
       end
 
       def call(env)
+        request = Request.new(env)
         @status, @headers, @body = @app.call(env)
+        return [@status, @headers, @body] unless request.path =~ /^\/rake/
+        raker = App.new(@rakefile)
+        raker.call(env)
       end
 
     end # Middleware

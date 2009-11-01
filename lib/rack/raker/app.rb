@@ -2,7 +2,6 @@ require 'sinatra/base'
 
 module Rack
   module Raker
-
     class App < Sinatra::Base
 
       set :root, ::File.dirname(__FILE__) + '/app'
@@ -14,7 +13,7 @@ module Rack
       end
 
       # TODO: Show task descriptions (or make an actual UI).
-      get '/' do
+      get '/rake/?' do
         @tasks = @manager.tasks
         erb :index
       end
@@ -26,7 +25,11 @@ module Rack
         redirect '/' unless @output
         erb :show
       end
-    end # App
 
+      not_found do
+        redirect '/rake'
+      end
+
+    end # App
   end # Raker
 end # Rack
