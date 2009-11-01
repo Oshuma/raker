@@ -13,6 +13,7 @@ module Rack
         @manager = TaskManager.new(@rakefile)
       end
 
+      # TODO: Show task descriptions (or make an actual UI).
       get '/' do
         @tasks = @manager.tasks
         erb :index
