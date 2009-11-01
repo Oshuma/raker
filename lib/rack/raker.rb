@@ -3,9 +3,10 @@ module Rack
 
     autoload :App, 'lib/rack/raker/app'
     autoload :Middleware, 'lib/rack/raker/middleware'
+    autoload :TaskManager, 'lib/rack/raker/task_manager'
 
+    # TODO: Add optional URL map.
     def self.new(*args)
-      $stdout.puts "-- DEBUG: Raker.new: #{args.inspect}"
       if args.first.class == String
         # run
         Raker::App.new(*args)
