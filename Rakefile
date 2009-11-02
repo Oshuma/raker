@@ -1,16 +1,10 @@
-namespace :raker do
-  desc 'Namespaced awesome task'
-  task :awesome do
-    puts 'This task is awesome.'
-  end
+require 'rake'
+require 'rake/testtask'
 
-  desc 'Do some utility stuff'
-  task :util do
-    puts 'Doing utility stuff'
-  end
-end
+task :default => :test
 
-desc 'Other task'
-task :other do
-  puts 'This is the other task'
+Rake::TestTask.new('test') do |t|
+  t.pattern = 'test/**/*_test.rb'
+  t.warning = true
+  t.verbose = true
 end

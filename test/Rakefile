@@ -1,0 +1,17 @@
+# A test Rakefile.
+namespace :raker do
+  desc 'Namespaced awesome task'
+  task :awesome do
+    puts 'This task is awesome.'
+  end
+
+  desc 'Do some utility stuff'
+  task :util do
+    puts 'Doing utility stuff...'
+  end
+end
+
+desc 'Some other task'
+task :some_task do
+  puts 'Some other task.'
+end
