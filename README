@@ -1,0 +1,16 @@
+= Rack::Raker
+
+A simple Rack middleware (or app) to run Rake tasks.
+
+= Usage
+
+== Middleware
+
+  require 'rack/raker'
+  use Rack::Raker, '/path/to/Rakefile'
+  run Rack::Lobster.new
+
+== App
+
+  require 'rack/raker'
+  run Rack::Raker.new('/path/to/Rakefile')
