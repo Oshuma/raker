@@ -14,4 +14,10 @@ describe TaskManager do
   it 'should run the given task' do
     @manager.run(@tasks.first).should.not.be false
   end
+
+  it 'should raise RakefileNotFound' do
+    lambda do
+      TaskManager.new('/not_a_real/Rakefile')
+    end.should.raise TaskManager::RakefileNotFound
+  end
 end

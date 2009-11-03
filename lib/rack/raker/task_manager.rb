@@ -2,9 +2,12 @@ module Rack
   module Raker
     class TaskManager
 
+      class RakefileNotFound < Exception; end
+
       attr_accessor :tasks
 
       def initialize(rakefile)
+        raise RakefileNotFound unless File.exists?(rakefile)
         @rakefile = rakefile
       end
 
@@ -12,8 +15,9 @@ module Rack
       def tasks
         output = %x[ rake -f #{@rakefile} -s -T ]
         @tasks ||= output.split("\n").map do |task|
-          task.match(/^rake\s([\w:]+)/)[1]
-        end
+          rake_line = task.match(/^rake\s([\w:]+)/)
+          rake_line ? rake_line[1] : nil
+        end.compact
       end
 
       # Run the specified Rake +task+ and returns the (string) output, or false upon failure.
