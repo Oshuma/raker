@@ -7,7 +7,7 @@ module Rack
       attr_accessor :tasks
 
       def initialize(rakefile)
-        raise RakefileNotFound unless File.exists?(rakefile)
+        raise RakefileNotFound unless ::File.exists?(rakefile)
         @rakefile = rakefile
       end
 
