@@ -1,9 +1,9 @@
 module Rack
   module Raker
 
-    autoload :App, 'lib/rack/raker/app'
-    autoload :Middleware, 'lib/rack/raker/middleware'
-    autoload :TaskManager, 'lib/rack/raker/task_manager'
+    autoload :App,         'rack/raker/app'
+    autoload :Middleware,  'rack/raker/middleware'
+    autoload :TaskManager, 'rack/raker/task_manager'
 
     # TODO: Add optional URL map.
     def self.new(*args)
