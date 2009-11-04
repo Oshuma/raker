@@ -1,10 +1,10 @@
-require 'rake'
 require 'rake/testtask'
 
 task :default => :test
 
-Rake::TestTask.new('test') do |t|
-  t.pattern = 'test/**/*_test.rb'
-  t.warning = true
-  t.verbose = true
+desc 'Run the tests'
+task :test do
+  require 'rake/runtest'
+  $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
+  Rake.run_tests 'test/**/*_test.rb'
 end

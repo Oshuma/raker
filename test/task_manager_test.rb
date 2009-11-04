@@ -1,6 +1,6 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 
-describe TaskManager do
+describe 'TaskManager' do
   before(:each) do
     @tasks    = ['raker:awesome', 'raker:util', 'some_task']
     @rakefile = File.join(File.dirname(__FILE__), 'Rakefile')
