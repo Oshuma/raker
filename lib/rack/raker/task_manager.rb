@@ -15,8 +15,7 @@ module Rack
       def tasks
         output = %x[ rake -f #{@rakefile} -s -T ]
         @tasks ||= output.split("\n").map do |task|
-          rake_line = task.match(/^rake\s([\w:]+)/)
-          rake_line ? rake_line[1] : nil
+          task.match(/^rake\s([^\s]+)\s+#\s(.+)/)[1..2]
         end.compact
       end
 

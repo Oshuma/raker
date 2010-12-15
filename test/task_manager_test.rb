@@ -2,7 +2,11 @@ require File.join(File.dirname(__FILE__), 'test_helper')
 
 describe 'TaskManager' do
   before(:each) do
-    @tasks    = ['raker:awesome', 'raker:util', 'some_task']
+    @tasks    = [
+      ['raker:awesome','Namespaced awesome task'],
+      ['raker:util','Do some utility stuff'],
+      ['some_task','Some other task']
+    ]
     @rakefile = File.join(File.dirname(__FILE__), 'Rakefile')
     @manager  = TaskManager.new(@rakefile)
   end
@@ -12,7 +16,7 @@ describe 'TaskManager' do
   end
 
   it 'should run the given task' do
-    @manager.run(@tasks.first).should.not.be false
+    @manager.run(@tasks.first.first).should.not.be false
   end
 
   it 'should raise RakefileNotFound' do

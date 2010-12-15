@@ -1,7 +1,7 @@
 <h3><code>$ rake -T</code></h3>
 
 <ul>
-  <% @tasks.each do |task| %>
-    <li><a href="/rake/<%= task %>"><%= task %></a></li>
+  <% @tasks.each do |task_name,task_desc| %>
+    <li><a href="/rake/<%= task_name %>"><%= task_name %></a> - <%= task_desc %></li>
   <% end %>
 </ul>

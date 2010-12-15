@@ -4,7 +4,11 @@ describe 'App' do
   include Rack::Test::Methods
 
   before(:each) do
-    @tasks    = ['raker:awesome', 'raker:util', 'some_task']
+    @tasks    = [
+      ['raker:awesome','Namespaced awesome task'],
+      ['raker:util','Do some utility stuff'],
+      ['some_task','Some other task']
+    ]
     @rakefile = File.join(File.dirname(__FILE__), 'Rakefile')
   end
 
@@ -19,13 +23,14 @@ describe 'App' do
 
   it 'should list the tasks' do
     get '/rake'
-    @tasks.each do |task|
-      last_response.body.should.include?(task)
+    @tasks.each do |task_name, task_desc|
+      last_response.body.should.include?(task_name)
+      last_response.body.should.include?(task_desc)
     end
   end
 
   it 'should run the given task' do
-    task = @tasks.first
+    task = @tasks.first.first
     get "/rake/#{task}"
     last_response.should.be.ok
   end
