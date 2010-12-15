@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sinatra', '>= 0.9.4'
 
   s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "test-spec", ">= 0.9.0"
 
   s.require_paths = %w[lib]
 
