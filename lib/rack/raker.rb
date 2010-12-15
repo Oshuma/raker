@@ -1,8 +1,6 @@
 module Rack
   module Raker
 
-    VERSION = '0.0.1'
-
     autoload :App,         'rack/raker/app'
     autoload :Middleware,  'rack/raker/middleware'
     autoload :TaskManager, 'rack/raker/task_manager'
