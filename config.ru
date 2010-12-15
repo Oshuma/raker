@@ -1,5 +1,6 @@
 require 'rack'
-require 'lib/rack/raker'
+$LOAD_PATH << 'lib'
+require 'rack/raker'
 
 use Rack::Reloader, 0
 
