@@ -1,19 +1,24 @@
+# -*- encoding: utf-8 -*-
+require File.expand_path("../lib/rack/raker/version", __FILE__)
+
 Gem::Specification.new do |s|
-  s.specification_version = 2 if s.respond_to? :specification_version=
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
+  s.name        = 'rack-raker'
+  s.version     = Rack::Raker::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ['Dale Campbell','Felipe Oliveira']
+  s.email       = ['oshuma@gmail.com','felipecvo@gmail.com']
+  s.homepage    = 'http://rubygems.org/gems/rack-raker'
+  s.summary     = 'Rack Rake middleware/app.'
+  s.description = s.summary
 
-  s.name = 'rack-raker'
-  s.version = '0.0.1'
-  s.date = '2009-11-02'
-  s.homepage = 'http://oshuma.github.com/rack-raker'
-
-  s.authors = ['Dale Campbell']
-  s.email = 'oshuma@gmail.com'
-
-  s.description = 'Rack Rake middleware/app.'
-  s.summary = 'Rack Rake middleware/app.'
+  s.required_rubygems_version = ">= 1.3.6"
+  s.rubyforge_project         = "rack-raker"
 
   s.add_dependency 'rack', '>= 0.4'
+  s.add_dependency 'sinatra', '>= 0.9.4'
+
+  s.add_development_dependency "bundler", ">= 1.0.0"
+
   s.require_paths = %w[lib]
 
   s.files = %w[
