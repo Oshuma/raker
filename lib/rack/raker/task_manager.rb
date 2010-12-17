@@ -23,6 +23,10 @@ module Rack
         end.compact
       end
 
+      def has?(task)
+        tasks.select { |name,desc| task == name }.size == 1
+      end
+
       # Run the specified Rake +task+ and returns the (string) output, or false upon failure.
       # TODO: Maybe move the +rake_opts+ elsewhere.
       def run(task, rake_opts = ['-s'])

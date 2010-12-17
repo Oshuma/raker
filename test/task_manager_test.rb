@@ -24,4 +24,12 @@ describe 'TaskManager' do
       TaskManager.new('/not_a_real/Rakefile')
     end.should.raise TaskManager::RakefileNotFound
   end
+
+  it 'should return true if the given task exists' do
+    @manager.has?(@tasks.first.first).should.be true
+  end
+
+  it 'should return false if the given task does not exists' do
+    @manager.has?('no_one').should.be false
+  end
 end
