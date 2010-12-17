@@ -1,3 +1,5 @@
+require 'open3'
+
 module Rack
   module Raker
     class TaskManager
@@ -30,9 +32,11 @@ module Rack
       # Run the specified Rake +task+ and returns the (string) output, or false upon failure.
       # TODO: Maybe move the +rake_opts+ elsewhere.
       def run(task, rake_opts = ['-s'])
-        output = %x[ #{rake} -f #{@rakefile} #{rake_opts.join(' ')} #{task} 2>/dev/null ]
-        output = false if output.empty?
-        output
+        Open3.popen3("#{rake} -f #{@rakefile} #{rake_opts.join(' ')} #{task}") do |stdinn, stdout, stderr|
+          err = stderr.read
+          raise err unless err.empty?
+          stdout.read
+        end
       end
 
     end # TaskManager
