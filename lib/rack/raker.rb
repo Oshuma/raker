@@ -4,8 +4,8 @@ module Rack
     autoload :App,         'rack/raker/app'
     autoload :Middleware,  'rack/raker/middleware'
     autoload :TaskManager, 'rack/raker/task_manager'
+    autoload :VERSION,     'rack/raker/version'
 
-    # TODO: Add optional URL map.
     def self.new(*args)
       if args.first.class == String
         # run
