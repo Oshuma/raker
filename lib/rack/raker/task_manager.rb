@@ -33,7 +33,7 @@ module Rack
       # TODO: Maybe move the +rake_opts+ elsewhere.
       def run(task, rake_opts = ['-s'])
         Open3.popen3("#{rake} -f #{@rakefile} #{rake_opts.join(' ')} #{task}") do |stdinn, stdout, stderr|
-          err = stderr.read
+          err = stderr.read.split(/\n/).delete_if { |line| /[^:]+:\d+: warning: .+/ =~ line }.join("\n")
           raise err unless err.empty?
           stdout.read
         end
