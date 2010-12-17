@@ -1,0 +1,13 @@
+<h3><code>$ <a href="<%= @path %>/">rake -T</a></code></h3>
+
+<h3><code>$ rake <%= @task %></code></h3>
+
+<% unless @output.nil? %>
+<pre>
+  <%= @output %>
+</pre>
+<% else %>
+ <pre>
+  <%= @error %>
+ </pre>
+<% end %>

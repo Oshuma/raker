@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = "rack-raker"
 
   s.add_dependency 'rack', '>= 0.4'
-  s.add_dependency 'sinatra', '>= 0.9.4'
 
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "test-spec", ">= 0.9.0"
@@ -29,9 +28,9 @@ Gem::Specification.new do |s|
     rack-raker.gemspec
     lib/rack/raker.rb
     lib/rack/raker/app.rb
-    lib/rack/raker/app/views/index.erb
-    lib/rack/raker/app/views/layout.erb
-    lib/rack/raker/app/views/show.erb
+    lib/rack/raker/views/index.erb
+    lib/rack/raker/views/layout.erb
+    lib/rack/raker/views/show.erb
     lib/rack/raker/middleware.rb
     lib/rack/raker/task_manager.rb
     test/Rakefile
