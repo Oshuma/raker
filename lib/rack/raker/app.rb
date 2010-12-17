@@ -28,6 +28,7 @@ module Rack
       end
 
       def show(task)
+        @output, @error = nil, nil
         begin
           @output = @manager.run(task)
         rescue Exception => ex
