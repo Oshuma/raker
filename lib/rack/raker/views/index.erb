@@ -1,7 +1,10 @@
 <h3><code>$ rake -T</code></h3>
 
-<ul>
-  <% @tasks.each do |task_name,task_desc| %>
-    <li><a href="<%= "#{@path}/#{task_name}/" %>"><%= task_name %></a> - <%= task_desc %></li>
+<table>
+  <% @tasks.each do |task, desc| %>
+    <tr>
+      <td><a href="<%= "#{@path}/#{task}/" %>"><%= task %></a></td>
+      <td><%= desc %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
