@@ -3,16 +3,14 @@ module Rack
     class Middleware
 
       def initialize(*args)
-        @args = args
-        @app = args.shift
-        @rakefile = args.first
+        @rack = args.shift
+        @app  = App.new(*args)
       end
 
       def call(env)
-        request = Request.new(env)
-        @status, @headers, @body = @app.call(env)
-        return [@status, @headers, @body] unless request.path =~ /^\/rake/
-        Raker::App.new(@rakefile).call(env)
+        res = @app.call(env)
+        res = @rack.call(env) if res[0] == 404
+        res
       end
 
     end # Middleware
