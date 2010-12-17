@@ -3,13 +3,9 @@
 <h3><code>$ rake <%= @task %></code></h3>
 
 <% unless @output.nil? %>
-  <pre>
-<%= @output %>
-  </pre>
+  <pre><%= @output %></pre>
 <% else %>
- <pre class="error">
-<%= @error %>
- </pre>
+ <pre class="error"><%= @error %></pre>
 <% end %>
 
 <a class="back" href="<%= @path %>/">&lt; Back</a> 
