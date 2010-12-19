@@ -1,4 +1,8 @@
-source :gemcutter
+source 'http://rubygems.org'
 
-# Specify your gem's dependencies in rack-raker.gemspec
-gemspec
+gem 'rack'
+gem 'rake'
+
+group :development do
+  gem 'test-spec'
+end

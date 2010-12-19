@@ -1,4 +1,5 @@
-# -*- encoding: utf-8 -*-
+require 'rake'
+
 require File.expand_path("../lib/rack/raker/version", __FILE__)
 
 Gem::Specification.new do |s|
@@ -21,22 +22,15 @@ Gem::Specification.new do |s|
 
   s.require_paths = %w[lib]
 
-  s.files = %w[
-    README
-    Rakefile
-    config.ru
-    rack-raker.gemspec
-    lib/rack/raker.rb
-    lib/rack/raker/app.rb
-    lib/rack/raker/views/index.erb
-    lib/rack/raker/views/layout.erb
-    lib/rack/raker/views/show.erb
-    lib/rack/raker/middleware.rb
-    lib/rack/raker/task_manager.rb
-    test/Rakefile
-    test/test_helper.rb
-    test/task_manager_test.rb
-  ]
+  s.files = FileList[
+    'Gemfile',
+    'README',
+    'Rakefile',
+    'config.ru',
+    'rack-raker.gemspec',
+    'lib/**/*',
+    'test/**/*',
+  ].to_a
 
   s.test_files = s.files.select { |path| path =~ /^test\/.*_test.rb/ }
 
